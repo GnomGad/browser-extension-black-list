@@ -1,6 +1,14 @@
 # Simple black list extension
 
-A simple browser plugin to block access to distracting or harmful websites and links.
+### A simple browser plugin to block access to distracting or harmful websites and links.
+
+---
+
+[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
+[![Version](https://img.shields.io/badge/version-1.0.0-brightgreen.svg)](https://github.com/GnomGad/browser-extension-black-list/releases)
+[![Issues](https://img.shields.io/github/issues/GnomGad/browser-extension-black-list.svg)](https://github.com/GnomGad/browser-extension-black-list/issues)
+
+
 
 ## Features
 

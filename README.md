@@ -44,18 +44,6 @@ The popup script (`popup.js`) handles the following:
 -   Displays the current list of blocked URLs and domains.
 -   Sends messages to the background script to update the blocking rules when changes are made.
 
-### Custom Block Page
-
--   A custom HTML page (`blocked.html`) is displayed when a blocked URL or domain is accessed, informing the user that the page is blocked.
-
-## Contributing
-
-1. Fork the repository.
-2. Create a new branch (`git checkout -b feature-branch`).
-3. Make your changes and commit them (`git commit -m 'Add some feature'`).
-4. Push to the branch (`git push origin feature-branch`).
-5. Open a Pull Request.
-
 ## License
 
 This project is licensed under the GNU General Public License Version 3. See the [LICENSE](LICENSE) file for details.

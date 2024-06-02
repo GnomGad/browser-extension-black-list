@@ -9,15 +9,16 @@
 [![Issues](https://img.shields.io/github/issues/GnomGad/browser-extension-black-list.svg)](https://github.com/GnomGad/browser-extension-black-list/issues)
 
 
-
 ## Features
 
--   **Add URL to Block List**: Easily add full URLs to the block list to prevent access to specific websites.
--   **Add Domain to Block List**: Block all resources containing a specific domain or part of a URL, ignoring case sensitivity.
--   **View Blocked URLs/Domains**: View a list of all blocked URLs and domains in the plugin's popup.
--   **Remove URL/Domain from Block List**: Remove specific URLs or domains from the block list with a single click.
--   **Persistent Storage**: Block lists are stored using the browser's local storage, ensuring persistence across sessions.
--   **Dynamic Rule Update**: Automatically updates blocking rules when URLs or domains are added or removed.
+- [x] **Add URL to Block List**: Easily add full URLs to the block list to prevent access to specific websites.
+- [x] **Add Domain to Block List**: Block all resources containing a specific domain or part of a URL, ignoring case sensitivity.
+- [x] **View Blocked URLs/Domains**: View a list of all blocked URLs and domains in the plugin's popup.
+- [x] **Remove URL/Domain from Block List**: Remove specific URLs or domains from the block list with a single click.
+- [x] **Persistent Storage**: Block lists are stored using the browser's local storage, ensuring persistence across sessions.
+- [x] **Dynamic Rule Update**: Automatically updates blocking rules when URLs or domains are added or removed.
+- [ ] **Enable/Disable Individual Rules**: Allow users to enable or disable specific rules without removing them.
+
 
 ## Installation
 

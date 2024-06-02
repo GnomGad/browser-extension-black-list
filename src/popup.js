@@ -1,27 +1,57 @@
 $(document).ready(ready);
+
 function displayUrls() {
     chrome.storage.local.get({ urls: [] }, function (result) {
         let urlList = $("#urlList");
         urlList.empty();
-        result.urls.forEach(function (url) {
-            let listItem = $("<li>").text(url);
-            let deleteButton = $("<button>").text("X");
-            deleteButton.click(function () {
-                removeUrl(url);
+        result.urls.forEach(function (urlObj) {
+            let listItem = $("<li>");
+            let urlText = $("<span>").text(urlObj.url);
+            let buttonGroup = $("<div>").addClass("button-group");
+            let toggleButton = $("<button>")
+                .text(urlObj.enabled ? "Enabled" : "Disabled")
+                .addClass(urlObj.enabled ? "enabled" : "disabled");
+            toggleButton.click(function () {
+                toggleUrl(urlObj.url);
             });
-            listItem.append(deleteButton);
+            let deleteButton = $("<button>")
+                .text("X")
+                .addClass("delete");
+            deleteButton.click(function () {
+                removeUrl(urlObj.url);
+            });
+            buttonGroup.append(toggleButton).append(deleteButton);
+            listItem.append(urlText).append(buttonGroup);
             urlList.append(listItem);
         });
     });
 }
-function removeUrl(url) {
+
+function toggleUrl(url) {
     chrome.storage.local.get({ urls: [] }, function (result) {
-        let urls = result.urls.filter((item) => item !== url);
+        let urls = result.urls.map(urlObj => {
+            if (urlObj.url === url) {
+                urlObj.enabled = !urlObj.enabled;
+            }
+            return urlObj;
+        });
         chrome.storage.local.set({ urls: urls }, function () {
             displayUrls();
+            chrome.runtime.sendMessage({ updateRules: true });
         });
     });
 }
+
+function removeUrl(url) {
+    chrome.storage.local.get({ urls: [] }, function (result) {
+        let urls = result.urls.filter(urlObj => urlObj.url !== url);
+        chrome.storage.local.set({ urls: urls }, function () {
+            displayUrls();
+            chrome.runtime.sendMessage({ updateRules: true });
+        });
+    });
+}
+
 function ready() {
     displayUrls();
 
@@ -41,12 +71,13 @@ function ready() {
         if (url) {
             chrome.storage.local.get({ urls: [] }, function (result) {
                 let urls = result.urls;
-                if (!urls.includes(url)) {
-                    urls.push(url);
+                if (!urls.some(urlObj => urlObj.url === url)) {
+                    urls.push({ url: url, enabled: true });
                     chrome.storage.local.set({ urls: urls }, function () {
                         $("#resultMessage").text("URL successfully added!");
                         $("#urlInput").val("");
                         displayUrls();
+                        chrome.runtime.sendMessage({ updateRules: true });
                     });
                 } else {
                     $("#resultMessage").text("URL already exists.");

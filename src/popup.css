@@ -6,7 +6,7 @@ body {
 }
 
 .container {
-    max-width: 500px;
+    width: 350px;
     margin: 0 auto;
     background: #fff;
     padding: 20px;
@@ -68,11 +68,18 @@ li {
 
 li span {
     flex: 1;
+    margin-right: 10px;
+}
+
+.button-group {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content:end;
+    gap: 5px;
 }
 
 li button {
     border: none;
-    background: #dc3545;
     color: #fff;
     padding: 5px 10px;
     border-radius: 4px;
@@ -80,5 +87,18 @@ li button {
 }
 
 li button:hover {
-    background: #c82333;
+    opacity: 0.8;
+}
+
+
+.enabled {
+    background-color: green;
+}
+
+.disabled {
+    background-color: red;
+}
+
+.delete {
+    background-color: red;
 }

@@ -37,7 +37,6 @@ function toggleUrl(url) {
         });
         chrome.storage.local.set({ urls: urls }, function () {
             displayUrls();
-            chrome.runtime.sendMessage({ updateRules: true });
         });
     });
 }
@@ -47,7 +46,6 @@ function removeUrl(url) {
         let urls = result.urls.filter(urlObj => urlObj.url !== url);
         chrome.storage.local.set({ urls: urls }, function () {
             displayUrls();
-            chrome.runtime.sendMessage({ updateRules: true });
         });
     });
 }
@@ -77,7 +75,6 @@ function ready() {
                         $("#resultMessage").text("URL successfully added!");
                         $("#urlInput").val("");
                         displayUrls();
-                        chrome.runtime.sendMessage({ updateRules: true });
                     });
                 } else {
                     $("#resultMessage").text("URL already exists.");

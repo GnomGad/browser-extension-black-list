@@ -8,11 +8,10 @@ function updateBlockedUrls() {
         const lastFreeIndex = existingRuleIds.length === 0 ? 1 : existingRuleIds[existingRuleIds.length - 1] + 1;
 
         chrome.storage.local.get({ urls: [] }, function (result) {
-            const urls = result.urls;
-
-            const rules = urls.map((item, index) => {
-                const isDomain = !item.includes("://");
-                const urlFilter = isDomain ? `*://*${item}*/*` : item;
+            const urls = result.urls.filter(urlObj => urlObj.enabled);
+            const rules = urls.map((urlObj, index) => {
+                const isDomain = !urlObj.url.includes("://");
+                const urlFilter = isDomain ? `*://*${urlObj.url}*/*` : item;
 
                 return {
                     id: lastFreeIndex + index,

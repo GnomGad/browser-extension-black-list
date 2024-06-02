@@ -17,7 +17,7 @@
 - [x] **Remove URL/Domain from Block List**: Remove specific URLs or domains from the block list with a single click.
 - [x] **Persistent Storage**: Block lists are stored using the browser's local storage, ensuring persistence across sessions.
 - [x] **Dynamic Rule Update**: Automatically updates blocking rules when URLs or domains are added or removed.
-- [ ] **Enable/Disable Individual Rules**: Allow users to enable or disable specific rules without removing them.
+- [x] **Enable/Disable Individual Rules**: Allow users to enable or disable specific rules without removing them.
 
 
 ## Installation

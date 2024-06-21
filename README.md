@@ -1,6 +1,8 @@
-# Simple black list extension
+# NoBan by IP
 
-### A simple browser plugin to block access to distracting or harmful websites and links.
+[English](README_en)
+
+### Простое расширение для браузера, позволяющее блокировать доступ к определенным сайтам при использовании указанного IPv4.
 
 ---
 
@@ -8,49 +10,58 @@
 [![Version](https://img.shields.io/github/v/release/GnomGad/browser-extension-black-list?color=green)](https://github.com/GnomGad/browser-extension-black-list/releases)
 [![Issues](https://img.shields.io/github/issues/GnomGad/browser-extension-black-list.svg)](https://github.com/GnomGad/browser-extension-black-list/issues)
 
-## Features
+## Проблема
 
--   [x] **Add URL to Block List**: Easily add full URLs to the block list to prevent access to specific websites.
--   [x] **Add Domain to Block List**: Block all resources containing a specific domain or part of a URL, ignoring case sensitivity.
--   [x] **View Blocked URLs/Domains**: View a list of all blocked URLs and domains in the plugin's popup.
--   [x] **Remove URL/Domain from Block List**: Remove specific URLs or domains from the block list with a single click.
--   [x] **Persistent Storage**: Block lists are stored using the browser's local storage, ensuring persistence across sessions.
--   [x] **Dynamic Rule Update**: Automatically updates blocking rules when URLs or domains are added or removed.
--   [x] **Enable/Disable Individual Rules**: Allow users to enable or disable specific rules without removing them.
+При использовании определенного IPv4 учетные записи мгновенно блокируются на некоторых сервисах. Это расширение предназначено для блокировки доступа к этим сайтам, чтобы предотвратить автоматические запреты при использовании указанного IPv4. В качестве обходного пути используйте VPN или Proxy.
 
-## Installation
+## Решение
 
-1. Clone or download the repository.
-2. Open your browser and navigate to the extensions page (e.g., `chrome://extensions/` in Chrome).
-3. Enable "Developer mode".
-4. Click on "Load unpacked" and select the `src` folder from the downloaded repository.
+Создать браузерное расширение в котором можно было бы ввести список IPv4 и список доменов/ссылок при переходе на которые мне бы блокировали доступ к ним если я использую указанный IPv4
 
-## Usage
+## Особенности
 
-1. Click on the extension icon to open the popup.
-2. Enter the URL or domain you wish to block in the input field.
-3. Click the "Add URL" button to add it to the block list.
-4. View the list of blocked URLs and domains in the popup.
-5. Click the "X" button next to a URL or domain to remove it from the block list.
+-   [x] **Добавить URL/домен в черный список**: Блокируйте все ресурсы, содержащие определенный домен или часть URL, без учета регистра.
+-   [x] **Просмотр заблокированных URL/доменов**: Просматривайте список всех заблокированных URL и доменов во всплывающем окне плагина.
+-   [x] **Удаление URL/домена из черного списка**: Удаляйте конкретные URL или домены из черного списка одним кликом.
+-   [x] **Постоянное хранилище**: Черные списки сохраняются с использованием локального хранилища браузера, обеспечивая сохранение между сессиями.
+-   [x] **Динамическое обновление правил**: Автоматически обновляет правила блокировки при добавлении или удалении URL или доменов.
+-   [x] **Включение/отключение отдельных правил**: Позволяет пользователям включать или отключать конкретные правила без их удаления.
+-   [ ] **Интеграция IPv4**: Поддержка вашего API для блокировки сайтов при использовании указанного IPv4.
+-   [ ] **Экспорт/импорт правил**: Возможность экспорта и импорта правил блокировки для удобного управления и переноса настроек.
 
-## How It Works
+## Установка
 
-### Background Script
+1. Клонируйте или скачайте репозиторий.
+2. Откройте ваш браузер и перейдите на страницу расширений (например, `chrome://extensions/` в Chrome).
+3. Включите "Режим разработчика".
+4. Нажмите "Загрузить распакованное" и выберите папку `src` из загруженного репозитория.
 
-The background script (`background.js`) handles the following:
+## Использование
 
--   On installation, it initializes the block list rules.
--   Listens for changes in the local storage to update blocking rules dynamically.
--   Uses the `chrome.declarativeNetRequest` API to set up blocking rules based on the block list.
+1. Нажмите на иконку расширения, чтобы открыть всплывающее окно.
+2. Введите URL или домен, который вы хотите заблокировать, в поле ввода.
+3. Нажмите кнопку "Добавить URL", чтобы добавить его в черный список.
+4. Просмотрите список заблокированных URL и доменов во всплывающем окне.
+5. Нажмите кнопку "X" рядом с URL или доменом, чтобы удалить его из черного списка.
 
-### Popup Script
+## Как это работает
 
-The popup script (`popup.js`) handles the following:
+### Фоновый скрипт
 
--   Provides an interface for adding and removing URLs and domains from the block list.
--   Displays the current list of blocked URLs and domains.
--   Sends messages to the background script to update the blocking rules when changes are made.
+Фоновый скрипт (`background.js`) выполняет следующие задачи:
 
-## License
+-   При установке инициализирует правила черного списка.
+-   Следит за изменениями в локальном хранилище для динамического обновления правил блокировки.
+-   Использует API `chrome.declarativeNetRequest` для настройки правил блокировки на основе черного списка.
 
-This project is licensed under the GNU General Public License Version 3. See the [LICENSE](LICENSE) file for details.
+### Скрипт всплывающего окна
+
+Скрипт всплывающего окна (`popup.js`) выполняет следующие задачи:
+
+-   Обеспечивает интерфейс для добавления и удаления URL и доменов из черного списка.
+-   Отображает текущий список заблокированных URL и доменов.
+-   Отправляет сообщения фоновому скрипту для обновления правил блокировки при внесении изменений.
+
+## Лицензия
+
+Этот проект лицензирован на условиях GNU General Public License Version 3. Подробности см. в файле [LICENSE](LICENSE).

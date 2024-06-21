@@ -14,9 +14,7 @@ function displayUrls() {
             toggleButton.click(function () {
                 toggleUrl(urlObj.url);
             });
-            let deleteButton = $("<button>")
-                .text("X")
-                .addClass("delete");
+            let deleteButton = $("<button>").text("X").addClass("delete");
             deleteButton.click(function () {
                 removeUrl(urlObj.url);
             });
@@ -58,7 +56,9 @@ function ready() {
         let filteredValue = value.replace(/[^a-zA-Z0-9.:\/\-]/g, "");
         if (value !== filteredValue) {
             $(this).val(filteredValue);
-            $("#resultMessage").text("Only English characters, numbers, and certain symbols (.:/-) are allowed.");
+            $("#resultMessage").text(
+                "Only English characters, numbers, and certain symbols (.:/-) are allowed.",
+            );
         } else {
             $("#resultMessage").text("");
         }

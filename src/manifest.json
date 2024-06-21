@@ -3,10 +3,7 @@
     "name": "Simple Black List",
     "version": "1.1",
     "description": "A simple browser plugin to block access to specified websites and URLs.",
-    "permissions": [
-        "storage",
-        "declarativeNetRequest"
-    ],
+    "permissions": ["storage", "declarativeNetRequest"],
     "background": {
         "service_worker": "background.js"
     },
@@ -23,12 +20,8 @@
     },
     "web_accessible_resources": [
         {
-            "resources": [
-                "blocked.html"
-            ],
-            "matches": [
-                "<all_urls>"
-            ]
+            "resources": ["blocked.html"],
+            "matches": ["<all_urls>"]
         }
     ]
 }

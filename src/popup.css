@@ -74,7 +74,7 @@ li span {
 .button-group {
     display: flex;
     flex-wrap: nowrap;
-    justify-content:end;
+    justify-content: end;
     gap: 5px;
 }
 
@@ -89,7 +89,6 @@ li button {
 li button:hover {
     opacity: 0.8;
 }
-
 
 .enabled {
     background-color: green;
